@@ -9,11 +9,12 @@ intents:
 - goodbye
 - stop
 - bot_challenge
+
 entities:
 - cuisine
 - location
-- people
-- price
+- budget
+
 slots:
   cuisine:
     type: text
@@ -21,6 +22,14 @@ slots:
   location:
     type: text
     influence_conversation: true
+  budget:
+    type: categorical
+    influence_conversation: true
+    values:
+      - low
+      - mid
+      - high
+
 responses:
   utter_ask_cuisine:
   - text: What kind of cuisine would you prefer?
@@ -37,35 +46,44 @@ responses:
       payload: South Indian
     - title: North Indian
       payload: North Indian
+
   utter_ask_budget:
   - text: What price range are you looking at?
     buttons:
     - title: Lesser than Rs.300
-      payload: low
+      payload: '/restaurant_search{"budget": "low"}'
     - title: Rs.300 to Rs.700
-      payload: mid
+      payload: '/restaurant_search{"budget": "mid"}'
     - title: More than Rs.700
-      payload: high
+      payload: '/restaurant_search{"budget": "high"}'
+
   utter_ask_howcanhelp:
-  - text: how can I help you?
+    - text: How can I help you?
+
   utter_ask_location:
-  - text: In what location?
+    - text: In what location?
+
   utter_default:
-  - text: i cannot understand
+    - text: "Sorry, I didn't get that, can you rephrase?"
+    - text: "Sorry, didn't catch that. Can you rephrase?"
+
   utter_goodbye:
-  - text: goodbye :(
-  - text: Bye-bye
+    - text: goodbye :(
+    - text: Bye-bye
+
   utter_greet:
-  - text: hey there! How may i help you
-  - text: Hi, How can I help you!
-  - text: Hey, How is it going. How May I help you Today
+    - text: Hey there! How may i help you
+    - text: Hi, How can I help you!
+    - text: Hey, How is it going? How may I help you today?
+
   utter_iamabot:
-  - text: I am a bot, powered by Rasa.
+    - text: I am a bot, powered by Rasa.
+
 actions:
 - action_search_restaurants
 - utter_ask_cuisine
-- utter_ask_howcanhelp
 - utter_ask_location
+- utter_ask_budget
 - utter_default
 - utter_goodbye
 - utter_greet

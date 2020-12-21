@@ -1,7 +1,7 @@
 version: "2.0"
 
 stories:
-- story: complete path
+- story: complete path 1
   steps:
     - intent: greet
     - action: utter_greet
@@ -14,23 +14,13 @@ stories:
     - intent: restaurant_search
       entities:
         - cuisine: "chinese"
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "mid"
     - action: action_search_restaurants
     - action: utter_goodbye
 
-- story: location specified
-  steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: restaurant_search
-      entities: 
-      - location: "delhi"
-    - action: utter_ask_cuisine
-    - intent: restaurant_search
-      entities: 
-      - cuisine: "chinese"
-    - action: action_search_restaurants
-    - intent: affirm
-    - action: utter_goodbye
 
 - story: complete path 2
   steps:
@@ -45,8 +35,14 @@ stories:
     - intent: restaurant_search
       entities: 
         - cuisine: "North Indian"
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "low"
     - action: action_search_restaurants
+    - intent: affirm
     - action: utter_goodbye
+
 
 - story: complete path 3
   steps:
@@ -56,14 +52,19 @@ stories:
     - action: utter_ask_location
     - intent: restaurant_search
       entities: 
-        - location: "italy"
+        - location: "jaipur"
     - action: utter_ask_cuisine
     - intent: restaurant_search
       entities: 
-        - cuisine: "chinese"
+        - cuisine: "american"
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "high"
     - action: action_search_restaurants
     - intent: goodbye
     - action: utter_goodbye
+
 
 - story: complete path 4
   steps:
@@ -77,11 +78,36 @@ stories:
     - action: utter_ask_cuisine
     - intent: restaurant_search
       entities: 
-        - cuisine: "chinese"
+        - cuisine: "south indian"
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "low"
     - action: action_search_restaurants
+    - intent: goodbye
+    - action: utter_goodbye
 
 
-- story: interactive_story_1
+- story: location specified 1
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+      entities: 
+      - location: "delhi"
+    - action: utter_ask_cuisine
+    - intent: restaurant_search
+      entities: 
+      - cuisine: "chinese"
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "high"
+    - action: action_search_restaurants
+    - intent: affirm
+    - action: utter_goodbye
+
+- story: location specified 2
   steps:
     - intent: greet
     - action: utter_greet
@@ -92,25 +118,54 @@ stories:
     - intent: restaurant_search
       entities: 
         - cuisine: "chinese"
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "mid"
     - action: action_search_restaurants
     - intent: stop
 
-- story: interactive_story_1
+- story: cuisine specified 1
   steps:
     - intent: greet
     - action: utter_greet
     - intent: restaurant_search
+      entities: 
+        - cuisine: "South Indian"
     - action: utter_ask_location
     - intent: restaurant_search
       entities: 
         - location: "mumbai"
-    - action: utter_ask_cuisine
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "mid"
+    - action: action_search_restaurants
+    - intent: affirm
+    - action: utter_goodbye
+
+
+- story: cuisine specified 2
+  steps:
+    - intent: greet
+    - action: utter_greet
     - intent: restaurant_search
       entities: 
-        - cuisine: "Italian"
+        - cuisine: "mexican"
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "kochi"
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "high"
     - action: action_search_restaurants
+    - intent: affirm
+    - action: utter_goodbye
 
-- story: interactive_story_1
+
+- story: cuisine and location specified 1
   steps:
     - intent: greet
     - action: utter_greet
@@ -118,12 +173,16 @@ stories:
       entities: 
         - cuisine: "chinese"
         - location: "delhi"
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "high"
     - action: action_search_restaurants
     - intent: affirm
     - action: utter_goodbye
     
     
-- story: happy_path
+- story: cuisine and location specified 2
   steps:
     - intent: greet
     - action: utter_greet
@@ -131,25 +190,89 @@ stories:
       entities: 
         - cuisine: "italian"
         - location: "mumbai"
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "mid"
     - action: action_search_restaurants
     - intent: affirm
     - action: utter_goodbye
 
 
-- story: interactive_story_1
+- story: cuisine and budget specified 1
   steps:
     - intent: greet
     - action: utter_greet
     - intent: restaurant_search
       entities: 
-        - cuisine: "chinese"
+        - cuisine: "mexican"
+        - budget: "low"
     - action: utter_ask_location
     - intent: restaurant_search
       entities: 
         - location: "delhi"
     - action: action_search_restaurants
-    - intent: affirm
+    - intent: goodbye
     - action: utter_goodbye
+
+
+- story: location and budget specified 1
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+      entities: 
+        - location: "hyderabad"
+        - budget: "low"
+    - action: utter_ask_cuisine
+    - intent: restaurant_search
+      entities: 
+        - location: "mexican"
+    - action: action_search_restaurants
+    - intent: goodbye
+    - action: utter_goodbye
+
+
+- story: all specified 1
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+      entities: 
+        - location: "hyderabad"
+        - cuisine: "american"
+        - budget: "mid"
+    - action: action_search_restaurants
+    - intent: goodbye
+    - action: utter_goodbye
+
+
+- story: all specified 2
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+      entities: 
+        - budget: "low"
+        - cuisine: "south indian"
+        - location: "Pune"
+    - action: action_search_restaurants
+    - intent: goodbye
+    - action: utter_goodbye
+
+- story: short hand 1
+  steps:
+    - intent: restaurant_search
+      entities: 
+        - cuisine: "south indian"
+        - location: "Pune"
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "mid"
+    - action: action_search_restaurants
+
+
 
 - story: interactive_story_1
   steps:

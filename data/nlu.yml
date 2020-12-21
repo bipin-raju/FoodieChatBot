@@ -15,6 +15,7 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    
 - intent: goodbye
   examples: |
     - good afternoon
@@ -28,6 +29,7 @@ nlu:
     - see you around
     - bye bye
     - see you later
+
 - intent: affirm
   examples: |
     - yes
@@ -46,6 +48,7 @@ nlu:
     - sounds really good
     - thanks
     - thank u
+
 - intent: deny
   examples: |
     - no
@@ -55,44 +58,14 @@ nlu:
     - don't like that
     - no way
     - not really
-- intent: mood_great
-  examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
 - intent: restaurant_search
   examples: |
     - i'm looking for a place to eat
@@ -105,7 +78,7 @@ nlu:
     - show me a [mexican](cuisine) place in the [centre](location)
     - i am looking for an [indian](cuisine) spot called olaolaolaolaolaola
     - search for restaurants
-    - anywhere in the [west](location)
+    - anywhere in the [kochi](location)
     - I am looking for [asian fusion](cuisine) food
     - I am looking a restaurant in [294328](location)
     - in [Gurgaon](location)
@@ -114,12 +87,12 @@ nlu:
     - [Italian](cuisine)
     - [Chinese](cuisine)
     - [chinese](cuisine)
-    - [Lithuania](location)
+    - [ahemdabad](location)
     - Oh, sorry, in [Italy](location)
     - in [delhi](location)
     - I am looking for some restaurants in [Mumbai](location)
     - I am looking for [mexican indian fusion](cuisine)
-    - can you book a table in [rome](location) in a [moderate](price) price range with [british](cuisine) food for [4](people) people
+    - can you book a table in [jaipur](location) in a [moderate](budget) price range with [american](cuisine) food for 4 people
     - [central](location) [indian](cuisine) restaurant
     - please help me to find restaurants in [pune](location)
     - Please find me a restaurantin [bangalore](location)
@@ -133,27 +106,65 @@ nlu:
     - find me place to eat
     - [delhi](location)
     - [South Indian](cuisine)
+    - [cheap](budget) [mexican](cuisine) restaurant in hyderabad(location) for 2
+    - get me table in a posh(budget) restaurant
+    - [american](cuisine) food in kolkata(location)
+    - need food
+    - find me [cheapest](budget) [north indian](cuisine) food
+
 - synonym: Delhi
   examples: |
     - New Delhi
+    - dilli
+
 - synonym: bangalore
   examples: |
     - Bengaluru
+    - bglr
+
 - synonym: chinese
   examples: |
     - chines
     - Chinese
     - Chines
+
+- synonym: low
+  examples: |
+    - cheap
+    - cheapest
+    - budget
+    - pocket friendly
+    - simple
+    
 - synonym: mid
   examples: |
     - moderate
+    - decent
+    - mid-range
+    - medium
+
+- synonym: high
+  examples: |
+    - expensive
+    - excuisite
+    - posh
+    - fabulous
+    - rich
+    - high end
+    - 5 star
+    - awesome
+    - amazing
+
+
 - synonym: vegetarian
   examples: |
     - veggie
     - vegg
+
 - regex: greet
   examples: |
     - hey[^\s]*
+
 - regex: pincode
   examples: |
     - [0-9]{6}

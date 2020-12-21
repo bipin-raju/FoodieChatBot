@@ -16,8 +16,9 @@ class ActionSearchRestaurants(Action):
 		zomato = actions.zomatopy.initialize_app(config)
 		loc = tracker.get_slot('location')
 		cuisine = tracker.get_slot('cuisine')
-		budget = 3
-		# budget = tracker.get_slot('budget')
+		# budget = 3
+		budget = tracker.get_slot('budget')
+		print(budget)
 		location_detail=zomato.get_location(loc, 1)
 		d1 = json.loads(location_detail)
 		lat=d1["location_suggestions"][0]["latitude"]
@@ -42,7 +43,7 @@ class ActionSearchRestaurants(Action):
 				for restaurant in json_result['restaurants']:
 					restaurant_budget = restaurant['restaurant']['average_cost_for_two']
 					print(restaurant_budget)
-					if((budget == 1 and restaurant_budget < 300) or (budget == 2 and restaurant_budget>=300 and restaurant_budget < 700) or (budget == 3 and restaurant_budget >= 700)):
+					if((budget == 'low' and restaurant_budget < 300) or (budget == 'mid' and restaurant_budget>=300 and restaurant_budget < 700) or (budget == 'high' and restaurant_budget >= 700)):
 						restaurant_found_count = restaurant_found_count + 1
 						response=response+ restaurant['restaurant']['name']+ " in "+ restaurant['restaurant']['location']['address']+ " has been rated " + restaurant['restaurant']['user_rating']['aggregate_rating'] + "\n"
 						if(restaurant_found_count >= 5 or search_offset >= 100):

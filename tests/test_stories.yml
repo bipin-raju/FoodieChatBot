@@ -2,15 +2,15 @@
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
 stories:
-- story: happy path 1
+- story: all specified
   steps:
   - user: |
       hello there!
     intent: greet
   - action: utter_greet
   - user: |
-      amazing
-    intent: mood_great
+      find me an expensive mexican restaurant in pune 
+    intent: restaurant_search
   - action: utter_happy
 
 - story: happy path 2

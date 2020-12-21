@@ -1,9 +1,19 @@
 digraph  {
 0 [class="start active", fillcolor=green, fontsize=12, label=START, style=filled];
 "-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
-1 [class=active, fontsize=12, label=action_session_start];
-2 [class="intent dashed active", label="  ?  ", shape=rect];
+1 [class="", fontsize=12, label=utter_greet];
+"-17" [class=ellipsis, label="..."];
+16 [class=active, fontsize=12, label=utter_ask_budget];
+17 [class="intent dashed active", label=nlu_fallback, shape=rect];
+18 [class=intent, fillcolor=lightblue, label=None, shape=rect, style=filled];
+19 [class="intent active", fillcolor=lightblue, label="chinese in delhi", shape=rect, style=filled];
+20 [class="intent active", fillcolor=lightblue, label=high, shape=rect, style=filled];
 0 -> "-1"  [class="", key=NONE, label=""];
-0 -> 1  [class=active, key=NONE, label=""];
-1 -> 2  [class=active, key=NONE, label=""];
+0 -> 18  [class="", key=0];
+0 -> 19  [class=active, key=0];
+1 -> "-17"  [class="", key=NONE, label=""];
+16 -> 20  [class=active, key=0];
+18 -> 1  [class="", key=0];
+19 -> 16  [class=active, key=0];
+20 -> 17  [class=active, key=0];
 }
