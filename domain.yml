@@ -3,18 +3,16 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- restaurant_search
 - affirm
+- restaurant_search
 - greet
 - goodbye
 - stop
 - bot_challenge
-
 entities:
+- budget
 - cuisine
 - location
-- budget
-
 slots:
   cuisine:
     type: text
@@ -26,64 +24,61 @@ slots:
     type: categorical
     influence_conversation: true
     values:
-      - low
-      - mid
-      - high
-
+    - low
+    - mid
+    - high
+  loc_avl:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+  csn_avl:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+  bgt_avl:
+    type: bool
+    initial_value: false
+    influence_conversation: true
 responses:
   utter_ask_cuisine:
-  - text: What kind of cuisine would you prefer?
-    buttons:
-    - title: Chinese
-      payload: Chinese
-    - title: Mexican
-      payload: Mexican
-    - title: Italian
-      payload: Italian
-    - title: American
-      payload: American
-    - title: South Indian
-      payload: South Indian
-    - title: North Indian
-      payload: North Indian
-
+  - text: |-
+      What kind of cuisine would you prefer?
+       - Chinese
+       - Mexican
+       - American
+       - Italian
+       - South Indian
+       - North Indian
   utter_ask_budget:
-  - text: What price range are you looking at?
-    buttons:
-    - title: Lesser than Rs.300
-      payload: '/restaurant_search{"budget": "low"}'
-    - title: Rs.300 to Rs.700
-      payload: '/restaurant_search{"budget": "mid"}'
-    - title: More than Rs.700
-      payload: '/restaurant_search{"budget": "high"}'
-
+  - text: |-
+      What price range are you looking at?
+       - Less than Rs.300
+       - Between Rs.300 and 700
+       - More than Rs.700
   utter_ask_howcanhelp:
-    - text: How can I help you?
-
+  - text: How can I help you?
   utter_ask_location:
-    - text: In what location?
-
+  - text: In what location?
   utter_default:
-    - text: "Sorry, I didn't get that, can you rephrase?"
-    - text: "Sorry, didn't catch that. Can you rephrase?"
-
+  - text: Sorry, I didn't get that, can you rephrase?
+  - text: Sorry, didn't catch that. Can you rephrase?
   utter_goodbye:
-    - text: goodbye :(
-    - text: Bye-bye
-
+  - text: Goodbye
+  - text: Bye-bye
   utter_greet:
-    - text: Hey there! How may i help you
-    - text: Hi, How can I help you!
-    - text: Hey, How is it going? How may I help you today?
-
+  - text: Hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going? How may I help you today?
   utter_iamabot:
-    - text: I am a bot, powered by Rasa.
-
+  - text: I am a bot, powered by Rasa.
 actions:
 - action_search_restaurants
+- action_validate_budget
+- action_validate_cuisine
+- action_validate_location
+- utter_ask_budget
 - utter_ask_cuisine
 - utter_ask_location
-- utter_ask_budget
 - utter_default
 - utter_goodbye
 - utter_greet

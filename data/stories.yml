@@ -1,7 +1,7 @@
 version: "2.0"
 
 stories:
-- story: complete path 1
+- story: complete path 
   steps:
     - intent: greet
     - action: utter_greet
@@ -10,63 +10,29 @@ stories:
     - intent: restaurant_search
       entities: 
         - location: "delhi"
+    - action: action_validate_location
+    - slot_was_set:
+      - loc_avl: True
     - action: utter_ask_cuisine
     - intent: restaurant_search
       entities:
         - cuisine: "chinese"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
     - action: utter_ask_budget
     - intent: restaurant_search
       entities:
         - budget: "mid"
-    - action: action_search_restaurants
-    - action: utter_goodbye
-
-
-- story: complete path 2
-  steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: restaurant_search
-    - action: utter_ask_location
-    - intent: restaurant_search
-      entities: 
-        - location: "delhi"
-    - action: utter_ask_cuisine
-    - intent: restaurant_search
-      entities: 
-        - cuisine: "North Indian"
-    - action: utter_ask_budget
-    - intent: restaurant_search
-      entities:
-        - budget: "low"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
     - action: action_search_restaurants
     - intent: affirm
     - action: utter_goodbye
 
 
-- story: complete path 3
-  steps:
-    - intent: greet
-    - action: utter_greet
-    - intent: restaurant_search
-    - action: utter_ask_location
-    - intent: restaurant_search
-      entities: 
-        - location: "jaipur"
-    - action: utter_ask_cuisine
-    - intent: restaurant_search
-      entities: 
-        - cuisine: "american"
-    - action: utter_ask_budget
-    - intent: restaurant_search
-      entities:
-        - budget: "high"
-    - action: action_search_restaurants
-    - intent: goodbye
-    - action: utter_goodbye
-
-
-- story: complete path 4
+- story: complete path with 1 wrong budget
   steps:
     - intent: greet
     - action: utter_greet
@@ -75,14 +41,271 @@ stories:
     - intent: restaurant_search
       entities: 
         - location: "delhi"
+    - action: action_validate_location
+    - slot_was_set:
+      - loc_avl: True
+    - action: utter_ask_cuisine
+    - intent: restaurant_search
+      entities:
+        - cuisine: "chinese"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "lofty"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: False
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "pocket-friendly"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
+    - action: action_search_restaurants
+    - intent: goodbye
+    - action: utter_goodbye
+
+
+- story: complete path with 1 wrong cuisine
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "delhi"
+    - action: action_validate_location
+    - slot_was_set:
+      - loc_avl: True
+    - action: utter_ask_cuisine
+    - intent: restaurant_search
+      entities:
+        - cuisine: "japnese"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: False
+    - action: utter_ask_cuisine
+    - intent: restaurant_search
+      entities:
+        - cuisine: "chinese"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "mid"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
+    - action: action_search_restaurants
+    - intent: goodbye
+    - action: utter_goodbye
+
+
+- story: complete path with 1 wrong location
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "america"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: False
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "delhi"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
     - action: utter_ask_cuisine
     - intent: restaurant_search
       entities: 
-        - cuisine: "south indian"
+        - cuisine: "North Indian"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
     - action: utter_ask_budget
     - intent: restaurant_search
       entities:
         - budget: "low"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True    
+    - action: action_search_restaurants
+    - intent: affirm
+    - action: utter_goodbye
+
+
+- story: complete path with 2 wrong locations
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "usa"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: False
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "italy"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: False
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "delhi"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
+    - action: utter_ask_cuisine
+    - intent: restaurant_search
+      entities: 
+        - cuisine: "american"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "high"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True 
+    - action: action_search_restaurants
+    - intent: goodbye
+    - action: utter_goodbye
+
+
+- story: complete path with 2 wrong cuisines
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "delhi"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
+    - action: utter_ask_cuisine
+    - intent: restaurant_search
+      entities: 
+        - cuisine: "armenian"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: False
+    - intent: restaurant_search
+      entities:
+        - cuisine: "japnese"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: False
+    - action: utter_ask_cuisine
+    - intent: restaurant_search
+      entities:
+        - cuisine: "usa"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "over 700"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True 
+    - action: action_search_restaurants
+    - intent: goodbye
+    - action: utter_goodbye
+
+
+- story: complete path with 2 wrong budgets
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "delhi"
+    - action: action_validate_location
+    - slot_was_set:
+      - loc_avl: True
+    - action: utter_ask_cuisine
+    - intent: restaurant_search
+      entities:
+        - cuisine: "chinese"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "first"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: False
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "that one"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: False
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "high"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
+    - action: action_search_restaurants
+    - intent: goodbye
+    - action: utter_goodbye
+
+
+- story: complete path 
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "delhi"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
+    - action: utter_ask_cuisine
+    - intent: restaurant_search
+      entities: 
+        - cuisine: "south indian"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "low"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
     - action: action_search_restaurants
     - intent: goodbye
     - action: utter_goodbye
@@ -95,35 +318,61 @@ stories:
     - intent: restaurant_search
       entities: 
       - location: "delhi"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
     - action: utter_ask_cuisine
     - intent: restaurant_search
       entities: 
       - cuisine: "chinese"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
     - action: utter_ask_budget
     - intent: restaurant_search
       entities:
         - budget: "high"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
     - action: action_search_restaurants
     - intent: affirm
     - action: utter_goodbye
 
-- story: location specified 2
+- story: location specified 2 with 1 wrong location
   steps:
     - intent: greet
     - action: utter_greet
     - intent: restaurant_search
       entities: 
-        - location: "mumbai"
+        - location: "kohli"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: False
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "delhi"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
     - action: utter_ask_cuisine
     - intent: restaurant_search
       entities: 
         - cuisine: "chinese"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
     - action: utter_ask_budget
     - intent: restaurant_search
       entities:
         - budget: "mid"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
     - action: action_search_restaurants
-    - intent: stop
+    - intent: affirm
+    - action: utter_goodbye
 
 - story: cuisine specified 1
   steps:
@@ -132,14 +381,23 @@ stories:
     - intent: restaurant_search
       entities: 
         - cuisine: "South Indian"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
     - action: utter_ask_location
     - intent: restaurant_search
       entities: 
-        - location: "mumbai"
+        - location: "bombay"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
     - action: utter_ask_budget
     - intent: restaurant_search
       entities:
-        - budget: "mid"
+        - budget: "high"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
     - action: action_search_restaurants
     - intent: affirm
     - action: utter_goodbye
@@ -152,14 +410,60 @@ stories:
     - intent: restaurant_search
       entities: 
         - cuisine: "mexican"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
     - action: utter_ask_location
     - intent: restaurant_search
       entities: 
         - location: "kochi"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
     - action: utter_ask_budget
     - intent: restaurant_search
       entities:
         - budget: "high"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
+    - action: action_search_restaurants
+    - intent: affirm
+    - action: utter_goodbye
+
+
+    
+- story: cuisine specified 3 with wrong location
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+      entities: 
+        - cuisine: "mexican"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "california"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: False
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "new delhi"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "high"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
     - action: action_search_restaurants
     - intent: affirm
     - action: utter_goodbye
@@ -173,10 +477,19 @@ stories:
       entities: 
         - cuisine: "chinese"
         - location: "delhi"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
     - action: utter_ask_budget
     - intent: restaurant_search
       entities:
-        - budget: "high"
+        - budget: "low"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
     - action: action_search_restaurants
     - intent: affirm
     - action: utter_goodbye
@@ -189,11 +502,53 @@ stories:
     - intent: restaurant_search
       entities: 
         - cuisine: "italian"
-        - location: "mumbai"
+        - location: "dilli"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
     - action: utter_ask_budget
     - intent: restaurant_search
       entities:
         - budget: "mid"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
+    - action: action_search_restaurants
+    - intent: affirm
+    - action: utter_goodbye
+
+
+- story: cuisine and location specified 3 with wrong location
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+      entities: 
+        - cuisine: "italian"
+        - location: "gachibowli"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: False
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "agra"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "mid"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
     - action: action_search_restaurants
     - intent: affirm
     - action: utter_goodbye
@@ -207,16 +562,25 @@ stories:
       entities: 
         - cuisine: "mexican"
         - budget: "low"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
     - action: utter_ask_location
     - intent: restaurant_search
       entities: 
         - location: "delhi"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
     - action: action_search_restaurants
     - intent: goodbye
     - action: utter_goodbye
 
 
-- story: location and budget specified 1
+- story: location and budget specified 2
   steps:
     - intent: greet
     - action: utter_greet
@@ -224,10 +588,59 @@ stories:
       entities: 
         - location: "hyderabad"
         - budget: "low"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
     - action: utter_ask_cuisine
     - intent: restaurant_search
       entities: 
-        - location: "mexican"
+        - cuisine: "mexican"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: action_search_restaurants
+    - intent: goodbye
+    - action: utter_goodbye
+
+
+- story: location and budget specified 3 with 3 wrong locations
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+      entities: 
+        - location: "europe"
+        - budget: "low"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: False
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "lanka"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: False
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "bengaluru"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True    
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
+    - action: utter_ask_cuisine
+    - intent: restaurant_search
+      entities: 
+        - cuisine: "mexican"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
     - action: action_search_restaurants
     - intent: goodbye
     - action: utter_goodbye
@@ -242,6 +655,15 @@ stories:
         - location: "hyderabad"
         - cuisine: "american"
         - budget: "mid"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
     - action: action_search_restaurants
     - intent: goodbye
     - action: utter_goodbye
@@ -256,9 +678,64 @@ stories:
         - budget: "low"
         - cuisine: "south indian"
         - location: "Pune"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
     - action: action_search_restaurants
     - intent: goodbye
     - action: utter_goodbye
+
+
+
+- story: all specified 3 with wrong location
+  steps:
+    - intent: greet
+    - action: utter_greet
+    - intent: restaurant_search
+      entities: 
+        - budget: "low"
+        - cuisine: "south indian"
+        - location: "korea"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: False
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "japan"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: False
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "china"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: False
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "bangalore"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True 
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: action_search_restaurants
+    - intent: goodbye
+    - action: utter_goodbye
+
 
 - story: short hand 1
   steps:
@@ -266,12 +743,90 @@ stories:
       entities: 
         - cuisine: "south indian"
         - location: "Pune"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
     - action: utter_ask_budget
     - intent: restaurant_search
       entities:
         - budget: "mid"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
     - action: action_search_restaurants
 
+
+- story: short hand 2
+  steps:
+    - intent: restaurant_search
+      entities: 
+        - budget: "mid"
+        - cuisine: "chinese"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "bangalore"
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True 
+    - action: action_search_restaurants
+
+
+- story: short hand 3
+  steps:
+    - intent: restaurant_search
+      entities: 
+        - budget: "mid"
+        - cuisine: "chinese"
+        - location: "bangalore"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True 
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: action_search_restaurants
+
+
+- story: short hand 4
+  steps:
+    - intent: restaurant_search
+      entities: 
+        - cuisine: "south indian"
+        - location: "spain"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: False
+    - action: utter_ask_location
+    - intent: restaurant_search
+      entities: 
+        - location: "bangalore"
+    - action: action_validate_location
+    - slot_was_set:
+        - loc_avl: True     
+    - action: action_validate_cuisine
+    - slot_was_set:
+        - csn_avl: True
+    - action: utter_ask_budget
+    - intent: restaurant_search
+      entities:
+        - budget: "mid"
+    - action: action_validate_budget
+    - slot_was_set:
+        - bgt_avl: True
+    - action: action_search_restaurants
 
 
 - story: interactive_story_1
@@ -279,20 +834,92 @@ stories:
   - intent: greet
   - action: utter_greet
   - intent: restaurant_search
+    entities:
+    - location: spain
+  - slot_was_set:
+    - location: spain
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: false
   - action: utter_ask_location
   - intent: restaurant_search
     entities:
-    - location: delhi
+    - location: pune
   - slot_was_set:
-    - location: delhi
+    - location: pune
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: true
   - action: utter_ask_cuisine
   - intent: restaurant_search
     entities:
-    - cuisine: South Indian
+    - cuisine: spanish
   - slot_was_set:
-    - cuisine: South Indian
+    - cuisine: spanish
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: false
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: american
+  - slot_was_set:
+    - cuisine: american
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: expensive
+  - slot_was_set:
+    - budget: expensive
+  - action: action_validate_budget
   - action: action_search_restaurants
+  - slot_was_set:
+    - location: pune
   - intent: affirm
   - action: utter_goodbye
-  - intent: goodbye
+  - action: action_restart
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: bhilwara
+  - slot_was_set:
+    - location: bhilwara
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: false
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: pune
+  - slot_was_set:
+    - location: pune
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: mexican
+  - slot_was_set:
+    - cuisine: mexican
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: high
+  - slot_was_set:
+    - budget: high
+  - action: action_validate_budget
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: pune
+  - intent: affirm
   - action: utter_goodbye
+  - action: action_restart

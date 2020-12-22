@@ -15,7 +15,6 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
-    
 - intent: goodbye
   examples: |
     - good afternoon
@@ -29,7 +28,6 @@ nlu:
     - see you around
     - bye bye
     - see you later
-
 - intent: affirm
   examples: |
     - yes
@@ -48,7 +46,7 @@ nlu:
     - sounds really good
     - thanks
     - thank u
-
+    - that was great. thanks
 - intent: deny
   examples: |
     - no
@@ -58,18 +56,17 @@ nlu:
     - don't like that
     - no way
     - not really
-
 - intent: bot_challenge
   examples: |
     - are you a bot?
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
-
 - intent: restaurant_search
   examples: |
     - i'm looking for a place to eat
     - I want to grab lunch
+    - i am hungry
     - I am searching for a dinner spot
     - I am looking for some restaurants in [Delhi](location).
     - I am looking for some restaurants in [Bangalore](location)
@@ -80,10 +77,13 @@ nlu:
     - search for restaurants
     - anywhere in the [kochi](location)
     - I am looking for [asian fusion](cuisine) food
-    - I am looking a restaurant in [294328](location)
+    - I am looking a restaurant in [thrissur](location)
     - in [Gurgaon](location)
+    - in [hyd](location)
     - [South Indian](cuisine)
     - [North Indian](cuisine)
+    - [american](cuisine)
+    - find me food from [america](cuisine) in [culcutta](location) [over 700](budget)
     - [Italian](cuisine)
     - [Chinese](cuisine)
     - [chinese](cuisine)
@@ -91,80 +91,287 @@ nlu:
     - Oh, sorry, in [Italy](location)
     - in [delhi](location)
     - I am looking for some restaurants in [Mumbai](location)
-    - I am looking for [mexican indian fusion](cuisine)
+    - I am looking for [mexican](cuisine)
     - can you book a table in [jaipur](location) in a [moderate](budget) price range with [american](cuisine) food for 4 people
-    - [central](location) [indian](cuisine) restaurant
+    - [chennai](location) [north india](cuisine) restaurant
     - please help me to find restaurants in [pune](location)
     - Please find me a restaurantin [bangalore](location)
     - [mumbai](location)
     - show me restaurants
-    - please find me [chinese](cuisine) restaurant in [delhi](location)
+    - please find me [chinese](cuisine) restaurant in [dilli](location)
     - can you find me a [chinese](cuisine) restaurant
-    - [delhi](location)
+    - [deli](location)
     - please find me a restaurant in [ahmedabad](location)
-    - please show me a few [italian](cuisine) restaurants in [bangalore](location)
+    - please show me a few [italian](cuisine) restaurants in [bengaluru](location)
     - find me place to eat
-    - [delhi](location)
-    - [South Indian](cuisine)
-    - [cheap](budget) [mexican](cuisine) restaurant in hyderabad(location) for 2
+    - [bombay](location)
+    - [South](cuisine)
+    - [cheapest](budget)
+    - [costly](budget)
+    - [budget friendly](budget)
+    - [under 300](budget)
+    - [over 700](budget)
+    - [cheap](budget) [mexican](cuisine) restaurant in [hyderabad](location) for 2
     - get me table in a posh(budget) restaurant
     - [american](cuisine) food in kolkata(location)
     - need food
-    - find me [cheapest](budget) [north indian](cuisine) food
-
+    - find me [cheapest](budget) [north](cuisine) food
+    - find restaurent in [vizag](location) [under 700](budget)
+    - [south india](cuisine) food in [pocket-friendly](budget) restaurent
+    - restaurent near [calicut](location) in [less cost]
+    - looking for [reasonably](budget) priced [italian](cuisine) restaurent in [coimbatore](location)
+    - find me food in [spain](location)
+    - [pune](location)
+    - get me some [spanish](cuisine) food
+    - find me something [expensive](budget)
+    - search restaurant in [bhilwara](location)
+    - [pune](location)
+    - [mexican](cuisine)
+    - [costly]{"entity": "budget", "value": "high"}
 - synonym: Delhi
   examples: |
     - New Delhi
     - dilli
-
 - synonym: bangalore
   examples: |
     - Bengaluru
     - bglr
-
 - synonym: chinese
   examples: |
     - chines
     - Chinese
     - Chines
-
+- synonym: mexican
+  examples: |
+    - mex
+    - mexi
+    - mexicn
+- synonym: italian
+  examples: |
+    - italy
+- synonym: american
+  examples: |
+    - america
+    - usa
+    - amrica
+- synonym: south indian
+  examples: |
+    - south india
+    - south
+    - si
+- synonym: north indian
+  examples: |
+    - north india
+    - north
+    - ni
 - synonym: low
   examples: |
     - cheap
     - cheapest
     - budget
+    - budget friendly
+    - pocket-friendly
     - pocket friendly
+    - low cost
+    - less cost
+    - inexpensive
     - simple
-    
+    - less
+    - 1
+    - 1.
+    - 300
+    - <300
+    - between 100 and 300
+    - under 300
+    - below 300
+    - less than 300
+    - upto 300
 - synonym: mid
   examples: |
     - moderate
+    - reasonable
     - decent
     - mid-range
     - medium
-
+    - 2
+    - 2.
+    - 300 to 700
+    - 3 to 7
+    - between 300 and 700
+    - under 700
+    - less than 700
+    - mid budget
+    - upto 700
+    - around 500
+    - over 300
 - synonym: high
   examples: |
     - expensive
     - excuisite
+    - exhuberant
+    - gourmet
     - posh
     - fabulous
+    - costly
+    - classy
+    - fancy
     - rich
     - high end
     - 5 star
     - awesome
     - amazing
-
-
-- synonym: vegetarian
+    - over 700
+    - more than 700
+    - 3
+    - 3.
+    - above 700
+- synonym: hyderabad
   examples: |
-    - veggie
-    - vegg
-
+    - hyd
+    - hydrabad
+    - secunderabad
+    - secundrabad
+- synonym: kolkata
+  examples: |
+    - culcutta
+    - Calcutta
+    - kolkta
+    - klkta
+- synonym: mumbai
+  examples: |
+    - bombay
+    - mumb
+- synonym: coimbatore
+  examples: |
+    - cmb
+    - coimb
+    - coimbtr
+- synonym: Kozhikode
+  examples: |
+    - Calicut
+    - kozikode
+- synonym: Thiruvananthapuram
+  examples: |
+    - tvm
+    - trivandrum
+    - trivandrm
+- synonym: Vishakapatnam
+  examples: |
+    - vizag
+    - vsk
+    - vzg
+- synonym: Chennai
+  examples: |
+    - madras
+    - chenai
 - regex: greet
   examples: |
     - hey[^\s]*
-
-- regex: pincode
+- lookup: location
   examples: |
-    - [0-9]{6}
+    - Ahmedabad
+    - Bengaluru
+    - Chennai
+    - Delhi
+    - Hyderabad
+    - Kolkata
+    - Mumbai
+    - Pune
+    - Agra
+    - Ajmer
+    - Aligarh
+    - Amravati
+    - Amritsar
+    - Asansol
+    - Aurangabad
+    - Bareilly
+    - Belgaum
+    - Bhavnagar
+    - Bhiwandi
+    - Bhopal
+    - Bhubaneswar
+    - Bikaner
+    - Bilaspur
+    - Bokaro Steel City
+    - Chandigarh
+    - Coimbatore
+    - Cuttack
+    - Dehradun
+    - Dhanbad
+    - Bhilai
+    - Durgapur
+    - Dindigul
+    - Erode
+    - Faridabad
+    - Firozabad
+    - Ghaziabad
+    - Gorakhpur
+    - Gulbarga
+    - Guntur
+    - Gwalior
+    - Gurgaon
+    - Guwahati
+    - Hamirpur
+    - Hubli–Dharwad
+    - Indore
+    - Jabalpur
+    - Jaipur
+    - Jalandhar
+    - Jammu
+    - Jamnagar
+    - Jamshedpur
+    - Jhansi
+    - Jodhpur
+    - Kakinada
+    - Kannur
+    - Kanpur
+    - Karnal
+    - Kochi
+    - Kolhapur
+    - Kollam
+    - Kozhikode
+    - Kurnool
+    - Ludhiana
+    - Lucknow
+    - Madurai
+    - Malappuram
+    - Mathura
+    - Mangalore
+    - Meerut
+    - Moradabad
+    - Mysore
+    - Nagpur
+    - Nanded
+    - Nashik
+    - Nellore
+    - Noida
+    - Patna
+    - Pondicherry
+    - Purulia
+    - Prayagraj
+    - Raipur
+    - Rajkot
+    - Rajahmundry
+    - Ranchi
+    - Rourkela
+    - Salem
+    - Sangli
+    - Shimla
+    - Siliguri
+    - Solapur
+    - Srinagar
+    - Surat
+    - Thanjavur
+    - Thiruvananthapuram
+    - Thrissur
+    - Tiruchirappalli
+    - Tirunelveli
+    - Ujjain
+    - Bijapur
+    - Vadodara
+    - Varanasi
+    - Vasai-Virar City
+    - Vijayawada
+    - Visakhapatnam
+    - Vellore
+    - Warangal
