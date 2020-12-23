@@ -4,15 +4,18 @@ session_config:
   carry_over_slots_to_new_session: true
 intents:
 - affirm
+- deny
 - restaurant_search
 - greet
 - goodbye
 - stop
 - bot_challenge
+- send_mail
 entities:
 - budget
 - cuisine
 - location
+- emailID
 slots:
   cuisine:
     type: text
@@ -27,6 +30,9 @@ slots:
     - low
     - mid
     - high
+  emailID:
+    type: text
+    influence_conversation: false
   loc_avl:
     type: bool
     initial_value: false
@@ -39,6 +45,11 @@ slots:
     type: bool
     initial_value: false
     influence_conversation: true
+  is_send_mail:
+    type: bool
+    initial_value: false
+    influence_conversation: true
+
 responses:
   utter_ask_cuisine:
   - text: |-
@@ -55,6 +66,13 @@ responses:
        - Less than Rs.300
        - Between Rs.300 and 700
        - More than Rs.700
+  utter_ask_emailID:
+  - text: "Please provide your Email ID."
+  utter_ask_email_preference: 
+  - text: "Do You want the details of the top 10 restaurants via email? (yes/no)"  
+  utter_email_sent:
+  - text: "We have emailed you the list of restaurants."
+  - text: "Please check your mailbox, your list of restaurants is ready to view."  
   utter_ask_howcanhelp:
   - text: How can I help you?
   utter_ask_location:
@@ -76,9 +94,15 @@ actions:
 - action_validate_budget
 - action_validate_cuisine
 - action_validate_location
+- action_validate_email
+- action_send_email
+- action_slot_reset
 - utter_ask_budget
 - utter_ask_cuisine
 - utter_ask_location
+- utter_ask_email_preference
+- utter_ask_emailID
+- utter_email_sent
 - utter_default
 - utter_goodbye
 - utter_greet

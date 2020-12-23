@@ -28,6 +28,15 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: affirm
+    - action: utter_ask_emailID
+    - intent: send_mail
+      entities:
+        - emailID: "something@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
 
@@ -66,7 +75,16 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
-    - intent: goodbye
+    - action: utter_ask_email_preference
+    - intent: affirm
+    - action: utter_ask_emailID
+    - intent: send_mail
+      entities:
+        - emailID: "something@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
+    - intent: affirm
     - action: utter_goodbye
 
 
@@ -104,11 +122,20 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
-    - intent: goodbye
+    - action: utter_ask_email_preference
+    - intent: affirm
+    - action: utter_ask_emailID
+    - intent: send_mail
+      entities:
+        - emailID: "something@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
+    - intent: affirm
     - action: utter_goodbye
 
 
-- story: complete path with 1 wrong location
+- story: complete path with 1 wrong location and no email
   steps:
     - intent: greet
     - action: utter_greet
@@ -142,6 +169,9 @@ stories:
     - slot_was_set:
         - bgt_avl: True    
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: deny
+    - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
 
@@ -187,6 +217,15 @@ stories:
     - slot_was_set:
         - bgt_avl: True 
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: affirm
+    - action: utter_ask_emailID
+    - intent: send_mail
+      entities:
+        - emailID: "something@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
     - intent: goodbye
     - action: utter_goodbye
 
@@ -231,7 +270,10 @@ stories:
     - slot_was_set:
         - bgt_avl: True 
     - action: action_search_restaurants
-    - intent: goodbye
+    - action: utter_ask_email_preference
+    - intent: deny
+    - action: action_slot_reset
+    - intent: affirm
     - action: utter_goodbye
 
 
@@ -276,7 +318,16 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
-    - intent: goodbye
+    - action: utter_ask_email_preference
+    - intent: affirm
+    - action: utter_ask_emailID
+    - intent: send_mail
+      entities:
+        - emailID: "something@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
+    - intent: affirm
     - action: utter_goodbye
 
 
@@ -307,7 +358,10 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
-    - intent: goodbye
+    - action: utter_ask_email_preference
+    - intent: deny
+    - action: action_slot_reset
+    - intent: affirm
     - action: utter_goodbye
 
 
@@ -336,6 +390,15 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: affirm
+    - action: utter_ask_emailID
+    - intent: send_mail
+      entities:
+        - emailID: "random@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
 
@@ -371,6 +434,15 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: affirm
+    - action: utter_ask_emailID
+    - intent: send_mail
+      entities:
+        - emailID: "simply@yahoo.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
 
@@ -399,6 +471,13 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: send_mail
+      entities:
+        - emailID: "something@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
 
@@ -428,6 +507,13 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: send_mail
+      entities:
+        - emailID: "something@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
 
@@ -465,7 +551,14 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
-    - intent: affirm
+    - action: utter_ask_email_preference
+    - intent: send_mail
+      entities:
+        - emailID: "something@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
+    - intent: goodbye
     - action: utter_goodbye
 
 
@@ -491,6 +584,15 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: affirm
+    - action: utter_ask_emailID
+    - intent: send_mail
+      entities:
+        - emailID: "upgrad@yahoo.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
     
@@ -517,6 +619,13 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: send_mail
+      entities:
+        - emailID: "asdf@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
 
@@ -550,6 +659,9 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: deny
+    - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
 
@@ -576,7 +688,16 @@ stories:
     - slot_was_set:
         - loc_avl: True
     - action: action_search_restaurants
-    - intent: goodbye
+    - action: utter_ask_email_preference
+    - intent: affirm
+    - action: utter_ask_emailID
+    - intent: send_mail
+      entities:
+        - emailID: "abcd@reddif.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
+    - intent: affirm
     - action: utter_goodbye
 
 
@@ -602,7 +723,10 @@ stories:
     - slot_was_set:
         - csn_avl: True
     - action: action_search_restaurants
-    - intent: goodbye
+    - action: utter_ask_email_preference
+    - intent: deny
+    - action: action_slot_reset
+    - intent: affirm
     - action: utter_goodbye
 
 
@@ -642,7 +766,16 @@ stories:
     - slot_was_set:
         - csn_avl: True
     - action: action_search_restaurants
-    - intent: goodbye
+    - action: utter_ask_email_preference
+    - intent: affirm
+    - action: utter_ask_emailID
+    - intent: send_mail
+      entities:
+        - emailID: "somethingelse@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
+    - intent: affirm
     - action: utter_goodbye
 
 
@@ -665,6 +798,15 @@ stories:
     - slot_was_set:
         - csn_avl: True
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: affirm
+    - action: utter_ask_emailID
+    - intent: send_mail
+      entities:
+        - emailID: "something@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
     - intent: goodbye
     - action: utter_goodbye
 
@@ -688,6 +830,9 @@ stories:
     - slot_was_set:
         - csn_avl: True
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: deny
+    - action: action_slot_reset
     - intent: goodbye
     - action: utter_goodbye
 
@@ -733,7 +878,14 @@ stories:
     - slot_was_set:
         - csn_avl: True
     - action: action_search_restaurants
-    - intent: goodbye
+    - action: utter_ask_email_preference
+    - intent: send_mail
+      entities:
+        - emailID: "something@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
+    - intent: affirm
     - action: utter_goodbye
 
 
@@ -757,6 +909,15 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: affirm
+    - action: utter_ask_emailID
+    - intent: send_mail
+      entities:
+        - emailID: "somethingdiff@yahoo.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
 
 
 - story: short hand 2
@@ -779,7 +940,15 @@ stories:
     - slot_was_set:
         - loc_avl: True 
     - action: action_search_restaurants
-
+    - action: utter_ask_email_preference
+    - intent: send_mail
+      entities:
+        - emailID: "something@gmail.com"
+    - action: action_send_email
+    - action: utter_email_sent
+    - action: action_slot_reset
+    - intent: affirm
+    - action: utter_goodbye
 
 - story: short hand 3
   steps:
@@ -798,6 +967,9 @@ stories:
     - slot_was_set:
         - csn_avl: True
     - action: action_search_restaurants
+    - action: utter_ask_email_preference
+    - intent: deny
+    - action: action_slot_reset
 
 
 - story: short hand 4
@@ -827,7 +999,11 @@ stories:
     - slot_was_set:
         - bgt_avl: True
     - action: action_search_restaurants
-
+    - action: utter_ask_email_preference
+    - intent: deny
+    - action: action_slot_reset
+    - intent: affirm
+    - action: utter_goodbye
 
 - story: interactive_story_1
   steps:
@@ -876,8 +1052,15 @@ stories:
     - budget: expensive
   - action: action_validate_budget
   - action: action_search_restaurants
-  - slot_was_set:
-    - location: pune
+  - action: utter_ask_email_preference
+  - intent: affirm
+  - action: utter_ask_emailID
+  - intent: send_mail
+    entities:
+      - emailID: "watsdat@reddif.com"
+  - action: action_send_email
+  - action: utter_email_sent
+  - action: action_slot_reset
   - intent: affirm
   - action: utter_goodbye
   - action: action_restart
@@ -918,8 +1101,9 @@ stories:
     - budget: high
   - action: action_validate_budget
   - action: action_search_restaurants
-  - slot_was_set:
-    - location: pune
+  - action: utter_ask_email_preference
+  - intent: deny
+  - action: action_slot_reset
   - intent: affirm
   - action: utter_goodbye
   - action: action_restart

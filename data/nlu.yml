@@ -47,10 +47,16 @@ nlu:
     - thanks
     - thank u
     - that was great. thanks
+    - yes that's good
+    - yes pls do that
+    - yeah go ahead
+    - sure
 - intent: deny
   examples: |
     - no
     - n
+    - no thanks
+    - thanks but no
     - never
     - I don't think so
     - don't like that
@@ -62,6 +68,15 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+- intent: send_mail
+  examples: |
+    - send me at [something@gmail.com](emailID)
+    - send it to [random@gmail.com](emailID)
+    - [simply@reddif.com](emailID)
+    - [justlikethat@yahoo.com](emailID)
+    - [different@gmail.com](emailID)
+    - mail me at [thisone@gmail.com](emailID)
+    - [thisone@yahoo.com]
 - intent: restaurant_search
   examples: |
     - i'm looking for a place to eat
@@ -267,6 +282,9 @@ nlu:
 - regex: greet
   examples: |
     - hey[^\s]*
+- regex: emailID
+  examples: |
+    - ^(\\D\\w.)*@(\\w.*)
 - lookup: location
   examples: |
     - Ahmedabad
