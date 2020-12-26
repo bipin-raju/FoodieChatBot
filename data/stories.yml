@@ -1107,3 +1107,474 @@ stories:
   - intent: affirm
   - action: utter_goodbye
   - action: action_restart
+
+  
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: kanchi
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: kanchi
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: false
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: coimbatore
+  - slot_was_set:
+    - location: coimbatore
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: true
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: low
+  - slot_was_set:
+    - budget: low
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: coimbatore
+  - action: utter_ask_email_preference
+  - intent: deny
+  - action: action_slot_reset
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: kaidarnath
+  - slot_was_set:
+    - location: kaidarnath
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: false
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: chandigarh
+  - slot_was_set:
+    - location: chandigarh
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: south indian
+  - slot_was_set:
+    - cuisine: south indian
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: mid
+  - slot_was_set:
+    - budget: mid
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: chandigarh
+  - action: utter_ask_email_preference
+  - intent: deny
+  - action: action_slot_reset
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - location: mount abu
+  - slot_was_set:
+    - location: mount abu
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: false
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: guntur
+  - slot_was_set:
+    - location: guntur
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: mexican
+  - slot_was_set:
+    - cuisine: mexican
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: high
+  - slot_was_set:
+    - budget: high
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: guntur
+  - action: utter_ask_email_preference
+  - intent: deny
+  - action: action_slot_reset
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: bangalore
+  - slot_was_set:
+    - location: bangalore
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: false
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: kochi
+  - slot_was_set:
+    - location: kochi
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: 300-700
+  - slot_was_set:
+    - budget: 300-700
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: false
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: kochi
+  - action: utter_ask_email_preference
+  - intent: send_mail
+    entities:
+    - emailID: abcd@jkl.com
+  - slot_was_set:
+    - emailID: abcd@jkl.com
+  - action: action_send_email
+  - action: utter_email_sent
+  - action: action_slot_reset
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: Risikesh
+  - slot_was_set:
+    - location: Risikesh
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: false
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: allahabad
+  - slot_was_set:
+    - location: allahabad
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: false
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: lucknow
+  - slot_was_set:
+    - location: lucknow
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: italain
+  - slot_was_set:
+    - cuisine: italain
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: false
+  - intent: restaurant_search
+    entities:
+    - cuisine: italian
+  - slot_was_set:
+    - cuisine: italian
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: '>700'
+  - slot_was_set:
+    - budget: '>700'
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: false
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: lucknow
+  - action: utter_ask_email_preference
+  - intent: send_mail
+    entities:
+    - emailID: bipinraju7@gmail.com
+  - slot_was_set:
+    - emailID: bipinraju7@gmail.com
+  - action: action_send_email
+  - action: utter_email_sent
+  - action: action_slot_reset
+  - intent: affirm
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+    entities:
+    - location: kolkata
+  - slot_was_set:
+    - location: kolkata
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: american
+  - slot_was_set:
+    - cuisine: american
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: low
+  - slot_was_set:
+    - budget: low
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: kolkata
+  - action: utter_ask_email_preference
+  - intent: deny
+  - action: action_slot_reset
+
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Pune
+  - slot_was_set:
+    - location: Pune
+  - action: action_validate_location
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: action_validate_cuisine
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: Rs.700
+  - slot_was_set:
+    - budget: Rs.700
+  - action: action_validate_budget
+  - action: action_search_restaurants
+  - action: utter_ask_email_preference
+  - intent: affirm
+  - action: utter_ask_emailID
+  - intent: send_mail
+    entities:
+    - emailID: vipult20@gmail.com
+  - slot_was_set:
+    - emailID: vipult20@gmail.com
+  - action: action_send_email
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+  - slot_was_set:
+    - cuisine: chinese
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: true
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Pune
+  - slot_was_set:
+    - location: Pune
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: Rs.700
+  - slot_was_set:
+    - budget: Rs.700
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: false
+  - action: utter_ask_budget
+  - intent: restaurant_search
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: high
+  - slot_was_set:
+    - budget: high
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Pune
+  - action: utter_ask_email_preference
+  - intent: affirm
+  - action: utter_ask_emailID
+  - intent: send_mail
+    entities:
+    - emailID: vipult20@gmail.com
+  - slot_was_set:
+    - emailID: vipult20@gmail.com
+  - action: action_send_email
+  - action: utter_email_sent
+  - action: action_slot_reset
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: restaurant_search
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Purnia
+  - slot_was_set:
+    - location: Purnia
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: false
+  - action: utter_ask_location
+  - intent: restaurant_search
+    entities:
+    - location: Pune
+  - slot_was_set:
+    - location: Pune
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: true
+  - action: utter_ask_cuisine
+  - intent: restaurant_search
+    entities:
+    - cuisine: American
+  - slot_was_set:
+    - cuisine: American
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: low
+    - budget: '700'
+  - slot_was_set:
+    - budget: '700'
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: false
+  - action: utter_ask_budget
+  - intent: affirm
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: false
+  - action: utter_ask_budget
+  - intent: affirm
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: false
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: low
+  - slot_was_set:
+    - budget: low
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: Pune
+  - action: utter_ask_email_preference
+  - intent: affirm
+  - action: utter_ask_emailID
+  - intent: send_mail
+    entities:
+    - emailID: vipult20@gmail.com
+  - slot_was_set:
+    - emailID: vipult20@gmail.com
+  - action: action_send_email
+  - action: utter_email_sent
+  - action: action_slot_reset
+  - intent: goodbye
+  - action: utter_goodbye

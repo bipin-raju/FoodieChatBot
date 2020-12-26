@@ -31,26 +31,27 @@ class ActionSearchRestaurants(Action):
         search_offset = 0                # to search for next 20 restaurants in the zomato result list (max 20 rest. are received in search API)
         response=""
 
-        while(restaurant_found_count < 5 and search_offset < 100):
-            results=zomato.restaurant_search_by_rating("", lat, lon, str(cuisines_dict.get(cuisine)), search_offset)
-            json_result = json.loads(results)
-            if json_result['results_shown'] == 0:
-                if response == "":
-                    response= "No restaurants found."
-                else:
-                    response = response + "\n Only these restaurants were found."
-                break;
+        # keep experiencing time-out error due to multiple API calls
+        # while(restaurant_found_count < 5 and search_offset < 100):
+        results=zomato.restaurant_search_by_rating("", lat, lon, str(cuisines_dict.get(cuisine)), search_offset)
+        json_result = json.loads(results)
+        if json_result['results_shown'] == 0:
+            if response == "":
+                response= "No restaurants found."
             else:
-                print("Restaurants found in search : ")
-                for restaurant in json_result['restaurants']:
-                    restaurant_budget = restaurant['restaurant']['average_cost_for_two']
-                    print(restaurant_budget)
-                    if((budget == 'low'and restaurant_budget < 300) or (budget == 'mid'and restaurant_budget>=300 and restaurant_budget <= 700) or (budget == 'high'and restaurant_budget > 700)):
-                        restaurant_found_count = restaurant_found_count + 1
-                        response=response + " --> "+restaurant['restaurant']['name']+ " in "+ restaurant['restaurant']['location']['address']+ " has been rated " + restaurant['restaurant']['user_rating']['aggregate_rating'] + "\n"
-                    if(restaurant_found_count >= 5):
-                        break;
-                search_offset = search_offset+20    # call search API for next 20 restaurants        
+                response = response + "\n Only these restaurants were found."
+            #break;
+        else:
+            print("Restaurants found in search : ")
+            for restaurant in json_result['restaurants']:
+                restaurant_budget = restaurant['restaurant']['average_cost_for_two']
+                print(restaurant_budget)
+                if((budget == 'low'and restaurant_budget < 300) or (budget == 'mid'and restaurant_budget>=300 and restaurant_budget <= 700) or (budget == 'high'and restaurant_budget > 700)):
+                    restaurant_found_count = restaurant_found_count + 1
+                    response=response + " --> "+restaurant['restaurant']['name']+ " in "+ restaurant['restaurant']['location']['address']+ " has been rated " + restaurant['restaurant']['user_rating']['aggregate_rating'] + "\n"
+                if(restaurant_found_count >= 5):
+                    break;
+            # search_offset = search_offset+20    # call search API for next 20 restaurants        
 
         if response == "":
             response= "No restaurants found."
@@ -132,32 +133,34 @@ class ActionSendEmail(Action):
         search_offset = 0                # to search for next 20 restaurants in the zomato result list (max 20 rest. are received in search API)
         response=""
         rest_df = pd.DataFrame(columns=['Name', 'Location', 'Avg. Rating', 'Avg. Cost of 2 people'])
-        while(restaurant_found_count < 10 and search_offset < 100):
-            results=zomato.restaurant_search_by_rating("", lat, lon, str(cuisines_dict.get(cuisine)), search_offset)
-            json_result = json.loads(results)
-            rest_name_list = []
-            rest_location_list = []
-            rest_rating_list = []
-            rest_price_list = []
-            if json_result['results_found'] == 0:
-            	dispatcher.utter_message("No Results")
+
+        # keep experiencing time-out error due to multiple API calls        
+        # while(restaurant_found_count < 10 and search_offset < 100):
+        results=zomato.restaurant_search_by_rating("", lat, lon, str(cuisines_dict.get(cuisine)), search_offset)
+        json_result = json.loads(results)
+        rest_name_list = []
+        rest_location_list = []
+        rest_rating_list = []
+        rest_price_list = []
+        if json_result['results_found'] == 0:
+            dispatcher.utter_message("No Results")
+        else:
+            rest_name_list = [restaurant['restaurant']['name'] for restaurant in json_result['restaurants']]
+            rest_location_list = [restaurant['restaurant']['location']['address'] for restaurant in json_result['restaurants']]
+            rest_rating_list = [restaurant['restaurant']['user_rating']['aggregate_rating'] for restaurant in json_result['restaurants']]
+            rest_budg_list = [restaurant['restaurant']['average_cost_for_two'] for restaurant in json_result['restaurants']]
+            pd.set_option('display.max_colwidth', None)
+            df = pd.DataFrame({'Name':rest_name_list, 'Location':rest_location_list, 'Avg. Rating':rest_rating_list, 'Avg. Cost of 2 people':rest_budg_list})
+            if budget == "low":
+            	df = df[df['Avg. Cost of 2 people']<300]
+            elif budget == "mid":
+            	df = df[(df['Avg. Cost of 2 people']>=300) & (df['Avg. Cost of 2 people']<=700)]
             else:
-            	rest_name_list = [restaurant['restaurant']['name'] for restaurant in json_result['restaurants']]
-            	rest_location_list = [restaurant['restaurant']['location']['address'] for restaurant in json_result['restaurants']]
-            	rest_rating_list = [restaurant['restaurant']['user_rating']['aggregate_rating'] for restaurant in json_result['restaurants']]
-            	rest_budg_list = [restaurant['restaurant']['average_cost_for_two'] for restaurant in json_result['restaurants']]
-            	pd.set_option('display.max_colwidth', None)
-            	df = pd.DataFrame({'Name':rest_name_list, 'Location':rest_location_list, 'Avg. Rating':rest_rating_list, 'Avg. Cost of 2 people':rest_budg_list})
-            	if budget == "low":
-            		df = df[df['Avg. Cost of 2 people']<300]
-            	elif budget == "mid":
-            		df = df[(df['Avg. Cost of 2 people']>=300) & (df['Avg. Cost of 2 people']<=700)]
-            	else:
-            		df = df[(df['Avg. Cost of 2 people']>700)]
-              
-            restaurant_found_count = restaurant_found_count + len(df.index)
-            search_offset = search_offset+20 	   
-            rest_df = pd.concat([rest_df, df])
+            	df = df[(df['Avg. Cost of 2 people']>700)]
+          
+        restaurant_found_count = restaurant_found_count + len(df.index)
+        #search_offset = search_offset+20 	   
+        rest_df = pd.concat([rest_df, df])
              	
         rest_df_html = rest_df.head(10).to_html(index=False)
         html_msg = "<p>Hey there!<br>Here are the top %s restaurants around %s for %s budget : <br><br>"%(cuisine,loc,budget)+rest_df_html+"</p>"

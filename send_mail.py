@@ -8,8 +8,8 @@ mail_settings = {
     "MAIL_USE_TLS": False, #Transport Layer Security
     "MAIL_USE_SSL": True,  #Secure Sockets Layer
     "MAIL_PORT": 465, 		 #For using SSL
-    "MAIL_USERNAME": '*************',
-    "MAIL_PASSWORD": '************'
+    "MAIL_USERNAME": 'dummyid845@gmail.com',
+    "MAIL_PASSWORD": 'dummypassword'
     }
 app.config.update(mail_settings)
 mail = Mail(app)

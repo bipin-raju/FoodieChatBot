@@ -15,6 +15,7 @@ nlu:
     - goodmorning
     - goodevening
     - good afternoon
+    - hola
 - intent: goodbye
   examples: |
     - good afternoon
@@ -51,6 +52,7 @@ nlu:
     - yes pls do that
     - yeah go ahead
     - sure
+    - classy
 - intent: deny
   examples: |
     - no
@@ -62,6 +64,8 @@ nlu:
     - don't like that
     - no way
     - not really
+    - no let it be
+    - pls no
 - intent: bot_challenge
   examples: |
     - are you a bot?
@@ -77,6 +81,9 @@ nlu:
     - [different@gmail.com](emailID)
     - mail me at [thisone@gmail.com](emailID)
     - [thisone@yahoo.com]
+    - yes pls send it to [abcd@jkl.com](emailID)
+    - yea send it to [bipinraju7@gmail.com](emailID)
+    - [vipult20@gmail.com](emailID)
 - intent: restaurant_search
   examples: |
     - i'm looking for a place to eat
@@ -98,7 +105,7 @@ nlu:
     - [South Indian](cuisine)
     - [North Indian](cuisine)
     - [american](cuisine)
-    - find me food from [america](cuisine) in [culcutta](location) [over 700](budget)
+    - find me food from [america](cuisine) in [culcutta](location) [over 700]{"entity": "budget", "value": "high"}
     - [Italian](cuisine)
     - [Chinese](cuisine)
     - [chinese](cuisine)
@@ -107,7 +114,7 @@ nlu:
     - in [delhi](location)
     - I am looking for some restaurants in [Mumbai](location)
     - I am looking for [mexican](cuisine)
-    - can you book a table in [jaipur](location) in a [moderate](budget) price range with [american](cuisine) food for 4 people
+    - can you book a table in [jaipur](location) in a [moderate]{"entity": "budget", "value": "mid"} price range with [american](cuisine) food for 4 people
     - [chennai](location) [north india](cuisine) restaurant
     - please help me to find restaurants in [pune](location)
     - Please find me a restaurantin [bangalore](location)
@@ -121,66 +128,90 @@ nlu:
     - find me place to eat
     - [bombay](location)
     - [South](cuisine)
-    - [cheapest](budget)
-    - [costly](budget)
-    - [budget friendly](budget)
-    - [under 300](budget)
-    - [over 700](budget)
-    - [cheap](budget) [mexican](cuisine) restaurant in [hyderabad](location) for 2
-    - get me table in a posh(budget) restaurant
-    - [american](cuisine) food in kolkata(location)
+    - [cheapest]{"entity": "budget", "value": "low"}
+    - [costly]{"entity": "budget", "value": "high"}
+    - [budget friendly]{"entity": "budget", "value": "low"}
+    - [under 300]{"entity": "budget", "value": "low"}
+    - [over 700]{"entity": "budget", "value": "high"}
+    - [cheap]{"entity": "budget", "value": "low"} [mexican](cuisine) restaurant in [hyderabad](location) for 2
+    - get me table in a posh{"entity": "budget", "value": "high"} restaurant
+    - [american](cuisine) food in [kolkata](location)
     - need food
-    - find me [cheapest](budget) [north](cuisine) food
-    - find restaurent in [vizag](location) [under 700](budget)
-    - [south india](cuisine) food in [pocket-friendly](budget) restaurent
+    - find me [cheapest]{"entity": "budget", "value": "low"} [north](cuisine) food
+    - find restaurent in [vizag](location) [under 700]{"entity": "budget", "value": "mid"}
+    - [south india](cuisine) food in [pocket-friendly]{"entity": "budget", "value": "low"} restaurent
     - restaurent near [calicut](location) in [less cost]
-    - looking for [reasonably](budget) priced [italian](cuisine) restaurent in [coimbatore](location)
+    - looking for [reasonably]{"entity": "budget", "value": "mid"} priced [italian](cuisine) restaurent in [coimbatore](location)
     - find me food in [spain](location)
     - [pune](location)
     - get me some [spanish](cuisine) food
-    - find me something [expensive](budget)
-    - search restaurant in [bhilwara](location)
-    - [pune](location)
+    - find me something [expensive]{"entity": "budget", "value": "high"}
+    - search restaurant [in bhilwara](location)
     - [mexican](cuisine)
     - [costly]{"entity": "budget", "value": "high"}
-- synonym: Delhi
+    - [chines]{"entity": "cuisine", "value": "chinese"} in [kanchi](location)
+    - [coimbatore](location)
+    - [300]{"entity": "budget", "value": "low"}
+    - [700]{"entity": "budget", "value": "high"}
+    - [over 700]{"entity": "budget", "value": "high"}
+    - [between 300 and 700]{"entity": "budget", "value": "mid"}
+    - find me food [in kaidarnath](location)
+    - [chandigarh](location)
+    - [south]{"entity": "cuisine", "value": "south indian"}
+    - find a restaurant in [mount abu](location)
+    - [guntur](location)
+    - i'm hungry. looking for some good restaurants.
+    - [bengaluru]{"entity": "location", "value": "bangalore"}
+    - [kochi](location)
+    - i'll prefer [italian](cuisine)
+    - [300-700]{"entity": "budget", "value": "mid"} range
+    - can you suggest some good restaurant in [Risikesh](location)
+    - okay. show me some in [allahabad](location)
+    - [lucknow](location)
+    - i'll prefer [italain](cuisine)
+    - [italian](cuisine)
+    - [>700]{"entity": "budget", "value": "high"}
+    - can you suggest some good restaurant in [kolkata](location)
+    - [american](cuisine)
+    - [<300]{"entity": "budget", "value": "low"}
+    - I want a place to eat
+    - [Pune](location)
+    - [Chinese]{"entity": "cuisine", "value": "chinese"}
+    - [More than Rs.700]{"entity": "budget", "value": "high"}
+    - [decent]{"entity": "budget", "value": "mid"}
+    - I want to go out on a lunch date
+    - [American](cuisine)
+    - [Between Rs.300 and 700]{"entity": "budget", "value": "mid"}
+    - [cheap]{"entity": "budget", "value": "low"}
+    - find me something in price range [300-700]{"entity": "budget", "value": "mid"}
+    - i want a restaurent in [mid range]{"entity": "budget", "value": "high"}
+- synonym: high
   examples: |
-    - New Delhi
-    - dilli
-- synonym: bangalore
-  examples: |
-    - Bengaluru
-    - bglr
-- synonym: chinese
-  examples: |
-    - chines
-    - Chinese
-    - Chines
-- synonym: mexican
-  examples: |
-    - mex
-    - mexi
-    - mexicn
-- synonym: italian
-  examples: |
-    - italy
-- synonym: american
-  examples: |
-    - america
-    - usa
-    - amrica
-- synonym: south indian
-  examples: |
-    - south india
-    - south
-    - si
-- synonym: north indian
-  examples: |
-    - north india
-    - north
-    - ni
+    - costly
+    - 700
+    - over 700
+    - expensive
+    - excuisite
+    - exhuberant
+    - gourmet
+    - posh
+    - fabulous
+    - classy
+    - fancy
+    - rich
+    - high end
+    - 5 star
+    - awesome
+    - amazing
+    - >700
+    - more than 700
+    - 3
+    - 3.
+    - above 700
+
 - synonym: low
   examples: |
+    - Rs.300
     - cheap
     - cheapest
     - budget
@@ -203,6 +234,7 @@ nlu:
     - upto 300
 - synonym: mid
   examples: |
+    - between 300 and 700
     - moderate
     - reasonable
     - decent
@@ -212,34 +244,54 @@ nlu:
     - 2.
     - 300 to 700
     - 3 to 7
-    - between 300 and 700
     - under 700
     - less than 700
     - mid budget
+    - mid range
     - upto 700
     - around 500
     - over 300
-- synonym: high
+    - 300-700
+- synonym: chinese
   examples: |
-    - expensive
-    - excuisite
-    - exhuberant
-    - gourmet
-    - posh
-    - fabulous
-    - costly
-    - classy
-    - fancy
-    - rich
-    - high end
-    - 5 star
-    - awesome
-    - amazing
-    - over 700
-    - more than 700
-    - 3
-    - 3.
-    - above 700
+    - chines
+    - Chinese
+    - Chines
+    
+- synonym: south indian
+  examples: |
+    - south
+    - south india
+    - si
+
+- synonym: Delhi
+  examples: |
+    - New Delhi
+    - dilli
+- synonym: Bengaluru
+  examples: |
+    - bangalore
+    - bglr
+- synonym: mexican
+  examples: |
+    - mex
+    - mexi
+    - mexicn
+    - mixican
+- synonym: italian
+  examples: |
+    - italy
+    - italain
+- synonym: american
+  examples: |
+    - america
+    - usa
+    - amrica
+- synonym: north indian
+  examples: |
+    - north india
+    - north
+    - ni
 - synonym: hyderabad
   examples: |
     - hyd
@@ -279,12 +331,12 @@ nlu:
   examples: |
     - madras
     - chenai
-- regex: greet
-  examples: |
-    - hey[^\s]*
 - regex: emailID
   examples: |
     - ^(\\D\\w.)*@(\\w.*)
+- regex: greet
+  examples: |
+    - hey[^\s]*
 - lookup: location
   examples: |
     - Ahmedabad
