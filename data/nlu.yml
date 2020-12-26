@@ -242,6 +242,7 @@ nlu:
     - medium
     - 2
     - 2.
+    - between Rs.300 and 700
     - 300 to 700
     - 3 to 7
     - under 700
