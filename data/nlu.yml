@@ -51,6 +51,7 @@ nlu:
     - yes pls do that
     - yeah go ahead
     - sure
+    - classy
 - intent: deny
   examples: |
     - no
@@ -77,6 +78,7 @@ nlu:
     - [different@gmail.com](emailID)
     - mail me at [thisone@gmail.com](emailID)
     - [thisone@yahoo.com]
+    - [vipult20@gmail.com](emailID)
 - intent: restaurant_search
   examples: |
     - i'm looking for a place to eat
@@ -140,9 +142,68 @@ nlu:
     - get me some [spanish](cuisine) food
     - find me something [expensive](budget)
     - search restaurant in [bhilwara](location)
-    - [pune](location)
     - [mexican](cuisine)
     - [costly]{"entity": "budget", "value": "high"}
+    - I want a place to eat
+    - [Pune](location)
+    - [Chinese]{"entity": "cuisine", "value": "chinese"}
+    - More than [Rs.700](budget)
+    - decent
+    - I want to go out on a lunch date
+    - [Purnia](location)
+    - [American](cuisine)
+    - Between [Rs.300]{"entity": "budget", "value": "low"} and [700](budget)
+    - [cheap]{"entity": "budget", "value": "low"}
+- synonym: high
+  examples: |
+    - costly
+    - expensive
+    - excuisite
+    - exhuberant
+    - gourmet
+    - posh
+    - date
+    - fabulous
+    - classy
+    - fancy
+    - rich
+    - high end
+    - 5 star
+    - awesome
+    - amazing
+    - over 700
+    - more than 700
+    - 3
+    - 3.
+    - above 700
+- synonym: chinese
+  examples: |
+    - Chinese
+    - chines
+    - Chines
+- synonym: low
+  examples: |
+    - Rs.300
+    - cheap
+    - cheapest
+    - budget
+    - budget friendly
+    - pocket-friendly
+    - pocket friendly
+    - low cost
+    - less cost
+    - inexpensive
+    - simple
+    - less
+    - 1
+    - 1.
+    - 300
+    - <300
+    - between 100 and 300
+    - under 300
+    - below 300
+    - less than 300
+    - upto 300
 - synonym: Delhi
   examples: |
     - New Delhi
@@ -151,11 +212,6 @@ nlu:
   examples: |
     - Bengaluru
     - bglr
-- synonym: chinese
-  examples: |
-    - chines
-    - Chinese
-    - Chines
 - synonym: mexican
   examples: |
     - mex
@@ -179,28 +235,6 @@ nlu:
     - north india
     - north
     - ni
-- synonym: low
-  examples: |
-    - cheap
-    - cheapest
-    - budget
-    - budget friendly
-    - pocket-friendly
-    - pocket friendly
-    - low cost
-    - less cost
-    - inexpensive
-    - simple
-    - less
-    - 1
-    - 1.
-    - 300
-    - <300
-    - between 100 and 300
-    - under 300
-    - below 300
-    - less than 300
-    - upto 300
 - synonym: mid
   examples: |
     - moderate
@@ -210,6 +244,7 @@ nlu:
     - medium
     - 2
     - 2.
+    - between Rs.300 and 700
     - 300 to 700
     - 3 to 7
     - between 300 and 700
@@ -219,27 +254,6 @@ nlu:
     - upto 700
     - around 500
     - over 300
-- synonym: high
-  examples: |
-    - expensive
-    - excuisite
-    - exhuberant
-    - gourmet
-    - posh
-    - fabulous
-    - costly
-    - classy
-    - fancy
-    - rich
-    - high end
-    - 5 star
-    - awesome
-    - amazing
-    - over 700
-    - more than 700
-    - 3
-    - 3.
-    - above 700
 - synonym: hyderabad
   examples: |
     - hyd
@@ -279,12 +293,12 @@ nlu:
   examples: |
     - madras
     - chenai
-- regex: greet
-  examples: |
-    - hey[^\s]*
 - regex: emailID
   examples: |
     - ^(\\D\\w.)*@(\\w.*)
+- regex: greet
+  examples: |
+    - hey[^\s]*
 - lookup: location
   examples: |
     - Ahmedabad
