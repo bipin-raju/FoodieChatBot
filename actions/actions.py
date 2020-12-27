@@ -42,7 +42,7 @@ class ActionSearchRestaurants(Action):
                 response = response + "\n Only these restaurants were found."
             #break;
         else:
-            print("Restaurants found in search : ")
+            print("Avg cost of Restaurants found in search : ")
             for restaurant in json_result['restaurants']:
                 restaurant_budget = restaurant['restaurant']['average_cost_for_two']
                 print(restaurant_budget)
@@ -56,7 +56,7 @@ class ActionSearchRestaurants(Action):
         if response == "":
             response= "No restaurants found."
         dispatcher.utter_message("------------------------\n"+response)
-        print("Done")
+        print("Action completed")
         return [SlotSet('location',loc)]
 
 
@@ -165,6 +165,8 @@ class ActionSendEmail(Action):
         rest_df_html = rest_df.head(10).to_html(index=False)
         html_msg = "<p>Hey there!<br>Here are the top %s restaurants around %s for %s budget : <br><br>"%(cuisine,loc,budget)+rest_df_html+"</p>"
         send_mail.mail_results(emailID, html_msg)
+        print("Action completed")
+        dispatcher.utter_message("Mail has been sent. Bon Appetit")
         return []
         
 

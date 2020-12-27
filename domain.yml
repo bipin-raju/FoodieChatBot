@@ -3,9 +3,9 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- restaurant_search
 - deny
 - greet
-- restaurant_search
 - affirm
 - send_mail
 - goodbye
@@ -82,6 +82,8 @@ responses:
   utter_goodbye:
   - text: Goodbye
   - text: Bye-bye
+  utter_bon_appetit:
+  - text: Bon Appetit
   utter_greet:
   - text: Hey there! How may i help you
   - text: Hi, How can I help you!
@@ -101,6 +103,7 @@ actions:
 - utter_ask_emailID
 - utter_ask_email_preference
 - utter_ask_location
+- utter_bon_appetit
 - utter_default
 - utter_email_sent
 - utter_goodbye

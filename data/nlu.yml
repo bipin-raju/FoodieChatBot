@@ -148,12 +148,10 @@ nlu:
     - find me something [expensive]{"entity": "budget", "value": "high"}
     - search restaurant [in bhilwara](location)
     - [mexican](cuisine)
-    - [costly]{"entity": "budget", "value": "high"}
     - [chines]{"entity": "cuisine", "value": "chinese"} in [kanchi](location)
     - [coimbatore](location)
     - [300]{"entity": "budget", "value": "low"}
     - [700]{"entity": "budget", "value": "high"}
-    - [over 700]{"entity": "budget", "value": "high"}
     - [between 300 and 700]{"entity": "budget", "value": "mid"}
     - find me food [in kaidarnath](location)
     - [chandigarh](location)
@@ -172,7 +170,6 @@ nlu:
     - [italian](cuisine)
     - [>700]{"entity": "budget", "value": "high"}
     - can you suggest some good restaurant in [kolkata](location)
-    - [american](cuisine)
     - [<300]{"entity": "budget", "value": "low"}
     - I want a place to eat
     - [Pune](location)
@@ -185,12 +182,17 @@ nlu:
     - [cheap]{"entity": "budget", "value": "low"}
     - find me something in price range [300-700]{"entity": "budget", "value": "mid"}
     - i want a restaurent in [mid range]{"entity": "budget", "value": "high"}
+    - [chinese](cuisine) restaurant in [delhi](location)
+    - [600](budget)
+    - [300]{"entity": "budget", "value": "low"}
 - synonym: high
   examples: |
-    - costly
-    - 700
     - over 700
+    - costly
     - expensive
+    - 700
+    - >700
+    - More than Rs.700
     - excuisite
     - exhuberant
     - gourmet
@@ -203,20 +205,44 @@ nlu:
     - 5 star
     - awesome
     - amazing
-    - >700
     - more than 700
     - 3
     - 3.
     - above 700
-
+- synonym: mid
+  examples: |
+    - moderate
+    - under 700
+    - reasonably
+    - between 300 and 700
+    - 300-700
+    - decent
+    - Between Rs.300 and 700
+    - mid range
+    - reasonable
+    - mid-range
+    - medium
+    - 2
+    - 2.
+    - between Rs.300 and 700
+    - 300 to 700
+    - 3 to 7
+    - less than 700
+    - mid budget
+    - upto 700
+    - around 500
+    - over 300
 - synonym: low
   examples: |
-    - Rs.300
-    - cheap
     - cheapest
-    - budget
     - budget friendly
+    - under 300
+    - cheap
     - pocket-friendly
+    - 300
+    - <300
+    - Rs.300
+    - budget
     - pocket friendly
     - low cost
     - less cost
@@ -225,46 +251,23 @@ nlu:
     - less
     - 1
     - 1.
-    - 300
-    - <300
     - between 100 and 300
-    - under 300
     - below 300
     - less than 300
     - upto 300
-- synonym: mid
-  examples: |
-    - between 300 and 700
-    - moderate
-    - reasonable
-    - decent
-    - mid-range
-    - medium
-    - 2
-    - 2.
-    - between Rs.300 and 700
-    - 300 to 700
-    - 3 to 7
-    - under 700
-    - less than 700
-    - mid budget
-    - mid range
-    - upto 700
-    - around 500
-    - over 300
-    - 300-700
 - synonym: chinese
   examples: |
     - chines
     - Chinese
     - Chines
-    
 - synonym: south indian
   examples: |
     - south
     - south india
     - si
-
+- synonym: bangalore
+  examples: |
+    - bengaluru
 - synonym: Delhi
   examples: |
     - New Delhi

@@ -171,6 +171,7 @@ stories:
     - action: action_search_restaurants
     - action: utter_ask_email_preference
     - intent: deny
+    - action: utter_bon_appetit
     - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
@@ -272,6 +273,7 @@ stories:
     - action: action_search_restaurants
     - action: utter_ask_email_preference
     - intent: deny
+    - action: utter_bon_appetit
     - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
@@ -360,6 +362,7 @@ stories:
     - action: action_search_restaurants
     - action: utter_ask_email_preference
     - intent: deny
+    - action: utter_bon_appetit
     - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
@@ -661,6 +664,7 @@ stories:
     - action: action_search_restaurants
     - action: utter_ask_email_preference
     - intent: deny
+    - action: utter_bon_appetit
     - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
@@ -725,6 +729,7 @@ stories:
     - action: action_search_restaurants
     - action: utter_ask_email_preference
     - intent: deny
+    - action: utter_bon_appetit
     - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
@@ -832,6 +837,7 @@ stories:
     - action: action_search_restaurants
     - action: utter_ask_email_preference
     - intent: deny
+    - action: utter_bon_appetit
     - action: action_slot_reset
     - intent: goodbye
     - action: utter_goodbye
@@ -969,6 +975,7 @@ stories:
     - action: action_search_restaurants
     - action: utter_ask_email_preference
     - intent: deny
+    - action: utter_bon_appetit
     - action: action_slot_reset
 
 
@@ -1001,6 +1008,7 @@ stories:
     - action: action_search_restaurants
     - action: utter_ask_email_preference
     - intent: deny
+    - action: utter_bon_appetit
     - action: action_slot_reset
     - intent: affirm
     - action: utter_goodbye
@@ -1016,7 +1024,7 @@ stories:
     - location: spain
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: false
+    - loc_avl: False
   - action: utter_ask_location
   - intent: restaurant_search
     entities:
@@ -1025,7 +1033,7 @@ stories:
     - location: pune
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: true
+    - loc_avl: True
   - action: utter_ask_cuisine
   - intent: restaurant_search
     entities:
@@ -1034,7 +1042,7 @@ stories:
     - cuisine: spanish
   - action: action_validate_cuisine
   - slot_was_set:
-    - csn_avl: false
+    - csn_avl: False
   - action: utter_ask_cuisine
   - intent: restaurant_search
     entities:
@@ -1043,7 +1051,7 @@ stories:
     - cuisine: american
   - action: action_validate_cuisine
   - slot_was_set:
-    - csn_avl: true
+    - csn_avl: True
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
@@ -1074,7 +1082,7 @@ stories:
     - location: bhilwara
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: false
+    - loc_avl: False
   - action: utter_ask_location
   - intent: restaurant_search
     entities:
@@ -1083,7 +1091,7 @@ stories:
     - location: pune
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: true
+    - loc_avl: True
   - action: utter_ask_cuisine
   - intent: restaurant_search
     entities:
@@ -1092,7 +1100,7 @@ stories:
     - cuisine: mexican
   - action: action_validate_cuisine
   - slot_was_set:
-    - csn_avl: true
+    - csn_avl: True
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
@@ -1103,6 +1111,7 @@ stories:
   - action: action_search_restaurants
   - action: utter_ask_email_preference
   - intent: deny
+  - action: utter_bon_appetit
   - action: action_slot_reset
   - intent: affirm
   - action: utter_goodbye
@@ -1121,7 +1130,7 @@ stories:
     - location: kanchi
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: false
+    - loc_avl: False
   - action: utter_ask_location
   - intent: restaurant_search
     entities:
@@ -1130,10 +1139,10 @@ stories:
     - location: coimbatore
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: true
+    - loc_avl: True
   - action: action_validate_cuisine
   - slot_was_set:
-    - csn_avl: true
+    - csn_avl: True
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
@@ -1142,12 +1151,13 @@ stories:
     - budget: low
   - action: action_validate_budget
   - slot_was_set:
-    - bgt_avl: true
+    - bgt_avl: True
   - action: action_search_restaurants
   - slot_was_set:
     - location: coimbatore
   - action: utter_ask_email_preference
   - intent: deny
+  - action: utter_bon_appetit
   - action: action_slot_reset
   - intent: affirm
   - action: utter_goodbye
@@ -1161,7 +1171,7 @@ stories:
     - location: kaidarnath
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: false
+    - loc_avl: False
   - action: utter_ask_location
   - intent: restaurant_search
     entities:
@@ -1170,7 +1180,7 @@ stories:
     - location: chandigarh
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: true
+    - loc_avl: True
   - action: utter_ask_cuisine
   - intent: restaurant_search
     entities:
@@ -1179,7 +1189,7 @@ stories:
     - cuisine: south indian
   - action: action_validate_cuisine
   - slot_was_set:
-    - csn_avl: true
+    - csn_avl: True
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
@@ -1188,7 +1198,7 @@ stories:
     - budget: mid
   - action: action_validate_budget
   - slot_was_set:
-    - bgt_avl: true
+    - bgt_avl: True
   - action: action_search_restaurants
   - slot_was_set:
     - location: chandigarh
@@ -1207,7 +1217,7 @@ stories:
     - location: mount abu
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: false
+    - loc_avl: False
   - action: utter_ask_location
   - intent: restaurant_search
     entities:
@@ -1216,7 +1226,7 @@ stories:
     - location: guntur
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: true
+    - loc_avl: True
   - action: utter_ask_cuisine
   - intent: restaurant_search
     entities:
@@ -1225,7 +1235,7 @@ stories:
     - cuisine: mexican
   - action: action_validate_cuisine
   - slot_was_set:
-    - csn_avl: true
+    - csn_avl: True
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
@@ -1234,12 +1244,13 @@ stories:
     - budget: high
   - action: action_validate_budget
   - slot_was_set:
-    - bgt_avl: true
+    - bgt_avl: True
   - action: action_search_restaurants
   - slot_was_set:
     - location: guntur
   - action: utter_ask_email_preference
   - intent: deny
+  - action: utter_bon_appetit
   - action: action_slot_reset
   - intent: affirm
   - action: utter_goodbye
@@ -1257,16 +1268,7 @@ stories:
     - location: bangalore
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: false
-  - action: utter_ask_location
-  - intent: restaurant_search
-    entities:
-    - location: kochi
-  - slot_was_set:
-    - location: kochi
-  - action: action_validate_location
-  - slot_was_set:
-    - loc_avl: true
+    - loc_avl: True
   - action: utter_ask_cuisine
   - intent: restaurant_search
     entities:
@@ -1275,7 +1277,7 @@ stories:
     - cuisine: italian
   - action: action_validate_cuisine
   - slot_was_set:
-    - csn_avl: true
+    - csn_avl: True
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
@@ -1284,7 +1286,7 @@ stories:
     - budget: 300-700
   - action: action_validate_budget
   - slot_was_set:
-    - bgt_avl: false
+    - bgt_avl: True
   - action: action_search_restaurants
   - slot_was_set:
     - location: kochi
@@ -1311,7 +1313,7 @@ stories:
     - location: Risikesh
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: false
+    - loc_avl: False
   - action: utter_ask_location
   - intent: restaurant_search
     entities:
@@ -1320,7 +1322,7 @@ stories:
     - location: allahabad
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: false
+    - loc_avl: False
   - action: utter_ask_location
   - intent: restaurant_search
     entities:
@@ -1329,7 +1331,7 @@ stories:
     - location: lucknow
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: true
+    - loc_avl: True
   - action: utter_ask_cuisine
   - intent: restaurant_search
     entities:
@@ -1338,7 +1340,7 @@ stories:
     - cuisine: italain
   - action: action_validate_cuisine
   - slot_was_set:
-    - csn_avl: false
+    - csn_avl: False
   - intent: restaurant_search
     entities:
     - cuisine: italian
@@ -1346,7 +1348,7 @@ stories:
     - cuisine: italian
   - action: action_validate_cuisine
   - slot_was_set:
-    - csn_avl: true
+    - csn_avl: True
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
@@ -1355,7 +1357,7 @@ stories:
     - budget: '>700'
   - action: action_validate_budget
   - slot_was_set:
-    - bgt_avl: false
+    - bgt_avl: True
   - action: action_search_restaurants
   - slot_was_set:
     - location: lucknow
@@ -1382,7 +1384,7 @@ stories:
     - location: kolkata
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: true
+    - loc_avl: True
   - action: utter_ask_cuisine
   - intent: restaurant_search
     entities:
@@ -1391,7 +1393,7 @@ stories:
     - cuisine: american
   - action: action_validate_cuisine
   - slot_was_set:
-    - csn_avl: true
+    - csn_avl: True
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
@@ -1400,12 +1402,13 @@ stories:
     - budget: low
   - action: action_validate_budget
   - slot_was_set:
-    - bgt_avl: true
+    - bgt_avl: True
   - action: action_search_restaurants
   - slot_was_set:
     - location: kolkata
   - action: utter_ask_email_preference
   - intent: deny
+  - action: utter_bon_appetit
   - action: action_slot_reset
 
 
@@ -1456,7 +1459,7 @@ stories:
     - cuisine: chinese
   - action: action_validate_cuisine
   - slot_was_set:
-    - csn_avl: true
+    - csn_avl: True
   - action: utter_ask_location
   - intent: restaurant_search
     entities:
@@ -1465,7 +1468,7 @@ stories:
     - location: Pune
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: true
+    - loc_avl: True
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
@@ -1474,9 +1477,7 @@ stories:
     - budget: Rs.700
   - action: action_validate_budget
   - slot_was_set:
-    - bgt_avl: false
-  - action: utter_ask_budget
-  - intent: restaurant_search
+    - bgt_avl: False
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
@@ -1485,7 +1486,7 @@ stories:
     - budget: high
   - action: action_validate_budget
   - slot_was_set:
-    - bgt_avl: true
+    - bgt_avl: True
   - action: action_search_restaurants
   - slot_was_set:
     - location: Pune
@@ -1514,7 +1515,7 @@ stories:
     - location: Purnia
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: false
+    - loc_avl: False
   - action: utter_ask_location
   - intent: restaurant_search
     entities:
@@ -1523,7 +1524,7 @@ stories:
     - location: Pune
   - action: action_validate_location
   - slot_was_set:
-    - loc_avl: true
+    - loc_avl: True
   - action: utter_ask_cuisine
   - intent: restaurant_search
     entities:
@@ -1532,27 +1533,26 @@ stories:
     - cuisine: American
   - action: action_validate_cuisine
   - slot_was_set:
-    - csn_avl: true
+    - csn_avl: True
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
     - budget: low
-    - budget: '700'
+    - budget: 'something'
   - slot_was_set:
-    - budget: '700'
+    - budget: 'something'
   - action: action_validate_budget
   - slot_was_set:
-    - bgt_avl: false
+    - bgt_avl: False
   - action: utter_ask_budget
-  - intent: affirm
+  - intent: restaurant_search
+    entities:
+    - budget: something
+  - slot_was_set:
+    - budget: something
   - action: action_validate_budget
   - slot_was_set:
-    - bgt_avl: false
-  - action: utter_ask_budget
-  - intent: affirm
-  - action: action_validate_budget
-  - slot_was_set:
-    - bgt_avl: false
+    - bgt_avl: False
   - action: utter_ask_budget
   - intent: restaurant_search
     entities:
@@ -1561,7 +1561,7 @@ stories:
     - budget: low
   - action: action_validate_budget
   - slot_was_set:
-    - bgt_avl: true
+    - bgt_avl: True
   - action: action_search_restaurants
   - slot_was_set:
     - location: Pune
@@ -1577,4 +1577,48 @@ stories:
   - action: utter_email_sent
   - action: action_slot_reset
   - intent: goodbye
+  - action: utter_goodbye
+
+- story: interactive_story_1
+  steps:
+  - intent: restaurant_search
+    entities:
+    - cuisine: chinese
+    - location: delhi
+  - slot_was_set:
+    - cuisine: chinese
+  - slot_was_set:
+    - location: delhi
+  - action: action_validate_location
+  - slot_was_set:
+    - loc_avl: true
+  - action: action_validate_cuisine
+  - slot_was_set:
+    - csn_avl: true
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: '600'
+  - slot_was_set:
+    - budget: '600'
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: false
+  - action: utter_ask_budget
+  - intent: restaurant_search
+    entities:
+    - budget: low
+  - slot_was_set:
+    - budget: low
+  - action: action_validate_budget
+  - slot_was_set:
+    - bgt_avl: true
+  - action: action_search_restaurants
+  - slot_was_set:
+    - location: delhi
+  - action: utter_ask_email_preference
+  - intent: deny
+  - action: utter_bon_appetit
+  - action: action_slot_reset
+  - intent: affirm
   - action: utter_goodbye
